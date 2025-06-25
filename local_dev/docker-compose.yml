@@ -1,4 +1,16 @@
 services:
+  auth-service:
+    container_name: auth-service
+    build:
+      dockerfile: Dockerfile.auth-service
+      context: ../
+    volumes:
+      - ../docs/api:/app/docs/api
+      - ../service/auth_service:/app/service/auth_service
+    networks:
+      - app-network
+    restart: always
+
   service_a:
     container_name: service_a
     build:
@@ -41,17 +53,15 @@ services:
       - app-network
     restart: always
 
-  api-gateway:
-    image: wso2/wso2am:latest
-    container_name: api-gateway
-    ports:
-      - "9080:9090"
-      - "9443:9443"
-    environment:
-      - WSO2_SERVER_ROLE=gateway-worker
-    networks:
-      - app-network
-    restart: always
+#  api-gateway:
+#    image: wso2/wso2am:latest
+#    container_name: api-gateway
+#    ports:
+#      - "9080:9090"
+#      - "9443:9443"
+#    networks:
+#      - app-network
+#    restart: always
 
 networks:
   app-network:

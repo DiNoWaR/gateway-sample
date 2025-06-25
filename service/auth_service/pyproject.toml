@@ -1,0 +1,22 @@
+[project]
+name = "auth_service"
+version = "1.0.0"
+description = "Auth Service"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi==0.115.4",
+    "sniffio",
+    "h11",
+    "uvicorn[standard]==0.32.0",
+    "pydantic==2.7.4",
+    "pydantic-core==2.18.1",
+    "annotated-types",
+    "anyio",
+    "pyyaml",
+    "requests==2.32.3",
+    "starlette~=0.41.2",
+    "click",
+    "typing_extensions",
+    "email-validator==2.2.0",
+    "idna"
+]
